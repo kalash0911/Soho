@@ -1,0 +1,39 @@
+.main-section {
+    padding: 25px 0;
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .text-block {
+        max-width: 45%;
+    }
+
+    .main-title,
+    .main-sub-title {
+        font-size: 347px;
+        line-height: 0.84;
+        margin: 0;
+    }
+
+    .main-title {
+        margin-bottom: 10px;
+    }
+
+    .main-sub-title {
+        border-top: 1px solid $white;
+        border-bottom: 1px solid $white;
+        color: $yellow_32;
+    
+    }
+
+    .main-sub-title-box {
+        display: flex;
+    }
+
+    .img-block {
+        max-width: 53%;
+    }
+}

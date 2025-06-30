@@ -1,4 +1,20 @@
+body {
+    font-family: $HeadingNowTrial;
+}
+
 #wrapper {
     position: relative;
     overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1610px;
+    padding: 0 30px;
+    margin: 0 auto;
+}
+
+b {
+    font-weight: inherit;
+    color: $yellow_32;
 }
