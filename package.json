@@ -5,9 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "bundle exec jekyll build -d ./_site",
-    "docs:build": "bundle exec jekyll build -d ./docs",
-    "serve": "bundle exec jekyll serve",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .ts"
   },
