@@ -17,34 +17,36 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+
+      - name: Create Gemfile if missing
+        run: |
+          if [ ! -f "Gemfile" ]; then
+            echo 'source "https://rubygems.org"' > Gemfile
+            echo 'gem "jekyll", "~> 4.4"' >> Gemfile
+            echo 'gem "github-pages", group: :jekyll_plugins' >> Gemfile
+          fi
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
-          bundler-cache: true  # Кэширование зависимостей
+          bundler-cache: true
 
       - name: Install dependencies
         run: |
-          gem install jekyll bundler
+          gem install bundler
           bundle install
 
       - name: Build with Jekyll
         run: bundle exec jekyll build -d ./_site
 
-      - name: Verify build output
+      - name: Verify build
         run: ls -la _site
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v4  # Обновлено до v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3  # Обновлено до v3
+      - uses: actions/configure-pages@v4
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: './_site'
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v3  # Обновлено до v3
+      - uses: actions/deploy-pages@v3
         id: deployment
