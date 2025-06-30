@@ -1,5 +1,8 @@
-body {
-    font-family: $HeadingNowTrial;
+html {
+
+    * {
+        font-family: $HeadingNowTrial;
+    }
 }
 
 #wrapper {
@@ -25,4 +28,51 @@ b {
 
 .text {
     margin: 0;
+}
+
+.btn {
+    position: relative;
+    padding: 2px 5px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: $medium;
+    font-size: 41px;
+    line-height: 1;
+    transition: $anim_03;
+
+    &::before,
+    &::after {
+        content:'';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 2px;
+        transition: $anim_03;
+    }
+
+    &::before {
+        top: 0;
+    }
+
+    &::after {
+        bottom: 0;
+    }
+
+    &.primary {
+        background-color: $yellow_32;
+        color: $black;
+
+        &::before,
+        &::after {
+            background-color: $white;
+        }
+    }
+
+    &:hover {
+        &::before,
+        &::after {
+            width: 0;
+        }
+    }
 }

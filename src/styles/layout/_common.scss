@@ -1,3 +1,5 @@
+/* ---------------------------main-section------------------------ */
+
 .main-section {
     padding: 25px 0;
 
@@ -45,8 +47,8 @@
     }
 
     .main-sub-title {
-        border-top: 1px solid $white;
-        border-bottom: 1px solid $white;
+        border-top: 3px solid $white;
+        border-bottom: 3px solid $white;
         color: $yellow_32;
         padding-bottom: 5px;
     }
@@ -127,7 +129,7 @@
                 position: absolute;
                 left: 0;
                 width: 100%;
-                height: 1px;
+                height: 2px;
                 background-color: $yellow_32;
             }
 
@@ -159,5 +161,182 @@
         @include media('<desktop') {
             order: -1;
         }
+    }
+}
+
+/* --------------------------quarter-section---------------------- */
+
+.quarter-section {
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        background-color: $gray_37;
+        box-shadow: $box_shadow_base;
+        overflow: hidden;
+        padding-right: 30px;
+
+        @include media('<desktop') {
+            padding: 0;
+        }
+    }
+
+    .btn-wrap {
+        display: flex;
+        gap: 10px;
+        padding: 5px 16px 14px 16px;
+        margin: 0 auto;
+        background-color: $black;
+        box-shadow: 
+            3.3px 3.3px 8px rgba($white, .25),
+            -3.3px 0 8px rgba($white, .25);
+    }
+
+    .block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        padding-top: 150px;
+
+        @include media('<widescreen') {
+            padding-top: 65px;
+        }
+
+        @include media('<desktop') {
+            grid-template-columns: 1fr;
+            order: 2;
+        }
+    }
+
+    .img-block {
+        grid-row: span 2;
+        display: flex;
+        align-items: flex-end;
+
+        @include media('<desktop') {
+            grid-row: span 1;
+            order: 2;
+            border-bottom: 2px solid $yellow_32;
+        }
+
+        img {
+            @include media('<desktop') {
+                max-width: 70%;
+            }
+        }
+        
+    }
+
+    .title-box {
+        display: flex;
+        align-items: flex-end;
+        gap: 20px;
+
+        @include media('<desktop') {
+            padding: 0 35px;
+        }
+    }
+
+    .title {
+        max-width: 400px;
+        font-size: 224px;
+        line-height: 0.85;
+        margin: 0;
+
+        b {
+            position: relative;
+            display: inline-block;
+
+            &::before,
+            &::after {
+                content:'';
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background-color: $white;
+            }
+
+            &::before {
+                top: 5px;
+            }
+
+            &::after {
+                bottom: -20px;
+            }
+        }
+    }
+
+    .text-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .stiker {
+        width: 100%;
+        max-width: 220px;
+        min-width: 220px;
+        padding: 14px 20px 8px 20px;
+        background-color: $gray_61;
+        box-shadow: $box_shadow_base;
+
+        @include media('<desktop') {
+            min-width: 0;
+        }
+    }
+
+    .text {
+        text-align: justify;
+    }
+
+    .title-box-sec {
+        padding: 80px 0;
+        margin-left: auto;
+        gap: 45px;
+
+        @include media('<desktop') {
+            order: 3;
+            padding: 35px 35px 80px 35px;
+            margin: 0;
+        }
+
+        .text-wrap {
+            max-width: 150px;
+        }
+
+        .title {
+            position: relative;
+            display: inline-block;
+
+            &::before,
+            &::after {
+                content:'';
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background-color: $yellow_32;
+            }
+
+            &::before {
+                top: 5px;
+            }
+
+            &::after {
+                bottom: -5px;
+            }
+        }
+    }
+
+    .sup-title {
+        font-size: 41px;
+        font-weight: $regular;
+        color: $yellow_32;
+        margin-bottom: 5px;
+    }
+
+    .icon {
+        width: 21px;
     }
 }
