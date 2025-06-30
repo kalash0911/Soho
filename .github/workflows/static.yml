@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Node
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -36,10 +36,10 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Verify dist exists
-        run: ls -lah ./dist  # Проверка наличия папки
+      - name: Verify build output
+        run: ls -la ./dist
 
-      - name: Setup Pages
+      - name: Configure Pages
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
