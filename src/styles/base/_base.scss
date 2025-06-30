@@ -12,9 +12,17 @@ body {
     max-width: 1610px;
     padding: 0 30px;
     margin: 0 auto;
+
+    @include media('<phone') {
+        padding: 0 15px;
+    }
 }
 
 b {
     font-weight: inherit;
     color: $yellow_32;
+}
+
+.text {
+    margin: 0;
 }
