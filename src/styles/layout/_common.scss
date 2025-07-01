@@ -340,3 +340,167 @@
         width: 21px;
     }
 }
+
+/* -------------------------accordion-section--------------------- */
+
+.accordion-section {
+    padding: 30px 0;
+
+    .accordion {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        counter-reset: my-awesome-counter;
+    }
+
+    .accordion-item {
+        position: relative;
+        counter-increment: my-awesome-counter;
+        margin-bottom: -4px;
+
+        &::before {
+            content: counter(my-awesome-counter) ". ";
+            position: absolute;
+            top: 30px;
+            left: 25px;
+            border-top: 1px solid $yellow_32;
+            border-bottom: 1px solid $yellow_32;
+            font: 500 27px/1 $Galgo;
+            letter-spacing: 0.04em;
+        }
+
+        &:nth-child(-n+9){
+
+            &::before {
+                content: "0" counter(my-awesome-counter) ". ";
+            }
+        }
+
+        &:last-child {
+
+            &::before {
+                display: none;
+            }
+
+            .accordion-text-box {
+                min-height: 50vh;
+            }
+
+            .accordion-content {
+                justify-content: flex-start;
+            }
+        }
+
+        &:nth-child(even) {
+
+            .accordion-content {
+                flex-direction: row-reverse;
+            }
+        }
+
+        &.open {
+            .accordion-header {
+                max-height: 200px;
+            }
+
+            .accordion-content {
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    .accordion-header {
+        position: relative;
+        width: 100%;
+        max-height: 70px;
+        min-height: 70px;
+        padding: 20px 27px 0 50px;
+        background: none;
+        border: none;
+        border-top: 2px solid $yellow_32;
+        text-align: left;
+        cursor: pointer;
+        overflow: hidden;
+        transition: $anim_03;
+
+        &::before,
+        &::after {
+            content:'';
+            position: absolute;
+            top: 0;
+            height: 56px;
+            width: 2px;
+            background-color: $yellow_32;
+        }
+
+        &::before {
+            left: 0;
+        }
+
+        &::after {
+            right: 0;
+        }
+
+        &:hover {
+            .accordion-title {
+                color: $yellow_32;
+            }
+        }
+    }
+
+    .accordion-title {
+        font-size: 116px;
+        line-height: 0.84;
+        margin-bottom: 50px;
+        transition: $anim_03;
+    }
+
+    .accordion-content {
+        max-height: 0;
+        display: flex;
+        justify-content: flex-end;
+        gap: 110px;
+        padding: 0 27px 0 50px;
+        overflow: hidden;
+        transition: $anim_03;
+    }
+
+    .accordion-text-box {
+        max-width: 310px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .accordion-last-text-box {
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .text {
+        position: relative;
+        text-align: justify;
+
+        b {
+
+            &::before {
+                content:'';
+                position: absolute;
+                width: 13px;
+                height: 16px;
+                top: 4px;
+                left: -30px;
+                background: url(../images/icons/arrow.svg) 0 0/ 13px 16px no-repeat;
+            }
+        }
+    }
+
+    .last-title {
+        margin: 0;
+        font-size: 116px;
+        line-height: 0.84;
+    }
+}
