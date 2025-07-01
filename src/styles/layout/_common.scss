@@ -504,3 +504,47 @@
         line-height: 0.84;
     }
 }
+
+/* ----------------------------doc-section------------------------ */
+
+.doc-section {
+    padding: 30px 0;
+
+    .docSlider {
+        max-width: 1400px;
+    }
+
+    .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .iframe-btn {
+        position: relative;
+        width: 100%;
+        min-height: 300px;
+        background-color: $white;
+        padding: 0;
+        margin: 0;
+        border: none;
+        cursor: pointer;
+
+        &::before {
+            content:'';
+            position: absolute;
+            inset: -1px;
+            background: rgba($black, .4);
+            backdrop-filter: blur(5px);
+            z-index: 1;
+        }
+
+        iframe {
+            position: absolute;
+            inset: 0;
+            object-fit: cover;
+            border: none; 
+        }
+    }
+}

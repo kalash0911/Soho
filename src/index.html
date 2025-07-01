@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Soho</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="/styles/main.scss">
 </head>
 
@@ -144,12 +145,74 @@
               </li>
             </ol>
           </div>
-          
+        </div>
+      </section> 
+      <div class="modal-iframe">
+        <button class="modal-iframe-overflow"></button>
+        <div class="modal-iframe-wrap">
+            <iframe src="" width="100%" height="100%"></iframe>
+            <button class="btn-close"></button>
+        </div>
+      </div>
+      <section class="doc-section">
+        <div class="container">
+          <div class="content">
+            <h2 class="title-lines">дозвільні документи</h2>
+            <div class="swiper docSlider iframe-block">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="item">
+                    <button class="iframe-btn">
+                      <iframe src="/Soho/files/test.pdf" width="100%" height="100%"></iframe>
+                    </button>
+                    <p class="text">паспорт об'єкта</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item">
+                    <button class="iframe-btn">
+                      <iframe src="/Soho/files/test2.pdf" width="100%" height="100%"></iframe>
+                    </button>
+                    <p class="text">дозвіл на будівництво</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item">
+                    <button class="iframe-btn">
+                      <iframe src="/Soho/files/test3.pdf" width="100%" height="100%"></iframe>
+                    </button>
+                    <p class="text">документи на земельну ділянку</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item">
+                    <button class="iframe-btn">
+                      <iframe src="/Soho/files/test.pdf" width="100%" height="100%"></iframe>
+                    </button>
+                    <p class="text">документи на комунікації</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item">
+                    <button class="iframe-btn">
+                      <iframe src="/Soho/files/test2.pdf" width="100%" height="100%"></iframe>
+                    </button>
+                    <p class="text">паспорт об'єкта</p>
+                  </div>
+                </div>
+              </div>
+              <div class="def-nav">
+                <div class="def-pag doc-pag"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
     {{> footer }}
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script type="module" src="/js/main.ts"></script>
 </body>
 
