@@ -38,6 +38,7 @@ headers.forEach(header => {
 
 // for Swipers
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 function destroySlidersOnResize(selector, width, obj, moreThan) {
     const init = {
@@ -46,6 +47,7 @@ function destroySlidersOnResize(selector, width, obj, moreThan) {
 
     const win = window;
     const sliderSelector = document.querySelector(selector);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     let swiper = new Swiper(selector, init);
 
@@ -55,6 +57,7 @@ function destroySlidersOnResize(selector, width, obj, moreThan) {
             : win.innerWidth <= width;
         if (neededWidth) {
             if (!sliderSelector?.classList.contains("swiper-initialized")) {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 swiper = new Swiper(selector, init);
             }
@@ -68,6 +71,7 @@ function destroySlidersOnResize(selector, width, obj, moreThan) {
     );
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 destroySlidersOnResize(".docSlider", 99999, {
     spaceBetween: 150,
@@ -153,4 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// for Modal-doc
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+Fancybox.bind("[data-fancybox]", {});

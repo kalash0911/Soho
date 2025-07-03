@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="ua">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Soho</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="/styles/main.scss">
 </head>
@@ -161,13 +162,60 @@
           </div>
         </div>
       </section>
-      <div class="modal-doc">
-        <button class="modal-doc-overflow"></button>
-        <div class="modal-doc-content">
-          <div class="modal-doc-wrap"></div>
-          <button class="btn-close"></button>
+      <section class="gallery-section">
+        <div class="container">
+          <div class="content">
+            <h1 class="title">галерея проекту</h1>
+            <div class="gallery-block">
+              <div class="gallery-item-wrap">
+                <a class="gallery-item" href="./images/gallery/gallery1.jpg" data-fancybox="gallery">
+                  <img src="./images/gallery/gallery1.jpg" />
+                </a>
+              </div>
+              <div class="gallery-item-wrap">
+                <a class="gallery-item" href="./images/gallery/gallery2.jpg" data-fancybox="gallery">
+                  <img src="./images/gallery/gallery2.jpg" />
+                </a>
+              </div>
+              <div class="gallery-item-wrap">
+                <a class="gallery-item" href="./images/gallery/gallery3.jpg" data-fancybox="gallery">
+                  <img src="./images/gallery/gallery3.jpg" />
+                </a>
+              </div>
+              <div class="gallery-item-wrap">
+                <a class="gallery-item" href="./images/gallery/gallery4.jpg" data-fancybox="gallery">
+                  <img src="./images/gallery/gallery4.jpg" />
+                </a>
+              </div>
+              <div class="gallery-item-wrap">
+                <a class="gallery-item" href="./images/gallery/gallery5.jpg" data-fancybox="gallery">
+                  <img src="./images/gallery/gallery5.jpg" />
+                </a>
+              </div>
+              <div class="gallery-item-wrap">
+                <a class="gallery-item" href="./images/gallery/gallery6.jpg" data-fancybox="gallery">
+                  <img src="./images/gallery/gallery6.jpg" />
+                </a>
+              </div>
+              <div class="gallery-item-wrap">
+                <a class="gallery-item" href="./images/gallery/gallery7.jpg" data-fancybox="gallery">
+                  <img src="./images/gallery/gallery7.jpg" />
+                </a>
+              </div>
+              <div class="gallery-item-wrap">
+                <a class="gallery-item" href="./images/gallery/gallery8.jpg" data-fancybox="gallery">
+                  <img src="./images/gallery/gallery8.jpg" />
+                </a>
+              </div>
+              <div class="gallery-item-wrap">
+                <a class="gallery-item" href="./images/gallery/gallery9.jpg" data-fancybox="gallery">
+                  <img src="./images/gallery/gallery9.jpg" />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
       <section class="doc-section">
         <div class="container">
           <div class="content">
@@ -227,10 +275,18 @@
           </div>
         </div>
       </section>
+      <div class="modal-doc">
+        <button class="modal-doc-overflow"></button>
+        <div class="modal-doc-content">
+          <div class="modal-doc-wrap"></div>
+          <button class="btn-close"></button>
+        </div>
+      </div>
     </main>
     {{> footer }}
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.umd.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script type="module" src="/js/main.ts"></script>
 </body>
