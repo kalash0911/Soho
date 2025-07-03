@@ -603,17 +603,14 @@
     .gallery-item-wrap {
         min-height: 194px;
 
-        // Массив с порядком колонок
         $cols: 2, 4, 6, 3, 1, 5;
+        $groups: 10;
 
-        // Цикл с шагом 6, повторяем для первых 30 элементов например
-        @for $i from 0 through 4 {
+        @for $i from 0 through ($groups - 1) {
             @for $j from 1 through 6 {
-                // Вычисляем номер элемента
                 $nth: $i * 6 + $j;
-
                 &:nth-child(#{$nth}) {
-                    grid-column: nth($cols, $j);
+                grid-column: nth($cols, $j);
                 }
             }
         }
