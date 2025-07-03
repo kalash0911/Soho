@@ -521,14 +521,16 @@
         gap: 25px;
     }
 
-    .iframe-btn {
+    .doc-btn {
         position: relative;
         width: 100%;
         min-height: 300px;
+        max-height: 300px;
         background-color: $white;
         padding: 0;
         margin: 0;
         border: none;
+        overflow: hidden;
         cursor: pointer;
 
         &::before {
@@ -538,13 +540,6 @@
             background: rgba($black, .4);
             backdrop-filter: blur(5px);
             z-index: 1;
-        }
-
-        iframe {
-            position: absolute;
-            inset: 0;
-            object-fit: cover;
-            border: none; 
         }
     }
 }

@@ -102,49 +102,55 @@ destroySlidersOnResize(".docSlider", 99999, {
     },
 });
 
-// for Modal-iframe
+// for Modal-doc
 
 document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.querySelector('.modal-iframe') as HTMLElement | null;
-    const modalIframe = modal?.querySelector('iframe') as HTMLIFrameElement | null;
+    const modal = document.querySelector('.modal-doc') as HTMLElement | null;
+    const modalWrap = modal?.querySelector('.modal-doc-wrap') as HTMLElement | null;
     const closeBtn = modal?.querySelector('.btn-close') as HTMLElement | null;
-    const overlay = modal?.querySelector('.modal-iframe-overflow') as HTMLElement | null;
-    const iframeButtons = document.querySelectorAll('.iframe-btn');
+    const overlay = modal?.querySelector('.modal-doc-overflow') as HTMLElement | null;
+    const docButtons = document.querySelectorAll('.doc-btn');
 
-    iframeButtons.forEach((btn) => {
+    if (!modal || !modalWrap || !closeBtn || !overlay) return;
+
+    docButtons.forEach((btn) => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
 
-            const iframe = btn.querySelector('iframe') as HTMLIFrameElement | null;
+            modalWrap.innerHTML = '';
 
-            if (iframe && modal && modalIframe) {
-                const src = iframe.getAttribute('src');
-                if (src) {
-                    modalIframe.setAttribute('src', src);
-                    document.body.classList.add('body_lock');
-                    modal.classList.add('modal-iframe_active');
+            const images = btn.querySelectorAll('img');
+            if (images.length === 0) return;
+
+            images.forEach((img) => {
+                if (img.src) {
+                    const modalImg = document.createElement('img');
+                    modalImg.src = img.src;
+                    modalImg.alt = img.alt || '';
+                    modalWrap.appendChild(modalImg);
                 }
-            }
+            });
+
+            document.body.classList.add('body_lock');
+            modal.classList.add('modal-doc_active');
         });
     });
 
     const closeModal = () => {
-        if (modal) {
-            modal.classList.remove('modal-iframe_active');
-            document.body.classList.remove('body_lock');
-            if (modalIframe) {
-                modalIframe.setAttribute('src', '');
-            }
-        }
+        modal.classList.remove('modal-doc_active');
+        document.body.classList.remove('body_lock');
+        modalWrap.innerHTML = '';
     };
 
-    closeBtn?.addEventListener('click', (e) => {
+    closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         closeModal();
     });
 
-    overlay?.addEventListener('click', (e) => {
+    overlay.addEventListener('click', (e) => {
         e.preventDefault();
         closeModal();
     });
 });
+
+
