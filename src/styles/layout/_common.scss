@@ -30,7 +30,7 @@
         @include adaptive-value("font-size", 347, 150, 1);
 
         @include media('<desktop') {
-            @include adaptive-value("font-size", 647, 170, 1);
+            @include adaptive-value("font-size", 647, 150, 1);
         }
     }
 
@@ -87,8 +87,9 @@
         }
 
         @include media('<phone') {
+            width: 30%;
             padding: 0;
-            width: 100%;
+            font-size: 10px;
         }
     }
 
