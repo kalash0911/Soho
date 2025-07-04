@@ -30,6 +30,27 @@ b {
     color: $yellow_32;
 }
 
+.title-lines {
+    position: relative;
+    display: inline-block;
+    font-size: 116px;
+    line-height: 0.84;
+    margin: 0;
+    padding: 7px 0 11px 0;
+    border-top: 3px solid;
+    border-bottom: 3px solid;
+
+    &.yellow {
+        color: $yellow_32;
+        border-color: $white;
+    }
+
+    &.white {
+        color: $white;
+        border-color: $yellow_32;
+    }
+}
+
 .text {
     margin: 0;
     text-align: justify;
