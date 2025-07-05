@@ -572,6 +572,10 @@
 .accordion-section {
     padding: 30px 0;
 
+    @include media('<phone') {
+        padding: 50px 0 25px 0;
+    }
+
     .accordion {
         width: 100%;
         padding: 0;
@@ -594,6 +598,12 @@
             border-bottom: 1px solid $yellow_32;
             font: 500 27px/1 $Galgo;
             letter-spacing: 0.04em;
+
+            @include media('<phone') {
+                font-size: 12px;
+                top: 13px;
+                left: 9px;
+            }
         }
 
         &:nth-child(-n+9){
@@ -622,6 +632,16 @@
 
             .accordion-content {
                 flex-direction: row-reverse;
+
+                @include media('<tablet') {
+                    flex-wrap: wrap;
+                }
+            }
+
+            .accordion-img-box {
+                @include media('<tablet') {
+                    order: -1;
+                }
             }
         }
 
@@ -650,6 +670,12 @@
         overflow: hidden;
         transition: $anim_03;
 
+        @include media('<phone') {
+            max-height: 30px;
+            min-height: 30px;
+            padding: 8px 12px 0 20px;
+        }
+
         &::before,
         &::after {
             content:'';
@@ -658,6 +684,10 @@
             height: 56px;
             width: 2px;
             background-color: $yellow_32;
+
+            @include media('<phone') {
+                height: 23px;
+            }
         }
 
         &::before {
@@ -680,6 +710,19 @@
         line-height: 0.84;
         margin-bottom: 50px;
         transition: $anim_03;
+
+        @include media('<desktop') {
+            font-size: 88px;
+        }
+
+        @include media('<tablet') {
+            font-size: 72px;
+            margin-bottom: 24px;
+        }
+
+        @include media('<phone') {
+            font-size: 50px;
+        }
     }
 
     .accordion-content {
@@ -690,6 +733,18 @@
         padding: 0 27px 0 50px;
         overflow: hidden;
         transition: $anim_03;
+
+        @include media('<desktop') {
+            gap: 30px;
+        }
+
+        @include media('<tablet') {
+            flex-wrap: wrap;
+        }
+
+        @include media('<phone') {
+            padding: 0;
+        }
     }
 
     .accordion-text-box {
@@ -697,6 +752,11 @@
         display: flex;
         flex-direction: column;
         gap: 30px;
+
+        @include media('<phone') {
+            gap: 10px;
+            padding-left: 20px;
+        }
     }
 
     .accordion-last-text-box {
@@ -709,6 +769,10 @@
     .text {
         position: relative;
 
+        @include media('<phone') {
+            max-width: 147px;
+        }
+
         b {
 
             &::before {
@@ -719,6 +783,14 @@
                 top: 4px;
                 left: -30px;
                 background: url(../images/icons/arrow.svg) 0 0/ 13px 16px no-repeat;
+
+                @include media('<phone') {
+                    width: 5px;
+                    height: 7px;
+                    top: 0;
+                    left: -15px;
+                    background-size: 5px 7px;
+                }
             }
         }
     }
@@ -727,6 +799,18 @@
         margin: 0;
         font-size: 116px;
         line-height: 0.84;
+
+        @include media('<desktop') {
+            font-size: 88px;
+        }
+
+        @include media('<tablet') {
+            font-size: 72px;
+        }
+
+        @include media('<phone') {
+            font-size: 50px;
+        }
     }
 }
 
