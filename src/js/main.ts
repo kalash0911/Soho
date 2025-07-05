@@ -76,33 +76,54 @@ function destroySlidersOnResize(selector, width, obj, moreThan) {
 destroySlidersOnResize(".docSlider", 99999, {
     spaceBetween: 150,
     slidesPerView: 4,
+    grid: {
+        rows: 2,
+        fill: 'row',
+    },
 
-    /*     breakpoints: {
-            0: {
-                slidesPerView: 1,
-                spaceBetween: 40,
+    breakpoints: {
+        0: {
+            slidesPerView: 2,
+            spaceBetween: 55,
+
+            grid: {
+                rows: 2,
             },
-            640: {
-                slidesPerView: 2,
-                spaceBetween: 40,
+        },
+        1024: {
+            slidesPerView: 4,
+            spaceBetween: 40,
+
+            grid: {
+                rows: 1,
             },
-            1024: {
-                slidesPerView: 3,
-                spaceBetween: 40,
+        },
+        1200: {
+            slidesPerView: 4,
+            spaceBetween: 100,
+
+            grid: {
+                rows: 1,
             },
-            1200: {
-                slidesPerView: 4,
-                spaceBetween: 40,
+        },
+        1500: {
+            slidesPerView: 4,
+            spaceBetween: 150,
+
+            grid: {
+                rows: 1,
             },
-            1500: {
-                slidesPerView: 4,
-                spaceBetween: 95,
-            },
-        }, */
+        },
+    },
 
     pagination: {
         el: '.doc-pag',
         clickable: true,
+    },
+
+    navigation: {
+        nextEl: '.doc-next',
+        prevEl: '.doc-prev',
     },
 });
 

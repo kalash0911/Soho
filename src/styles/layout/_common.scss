@@ -1165,49 +1165,9 @@
     .title-lines {
         margin-left: auto;
         margin-right: 22%;
-    }
-}
 
-/* ----------------------------doc-section------------------------ */
-
-.doc-section {
-    padding: 30px 0;
-
-    .docSlider {
-        max-width: 1400px;
-    }
-
-    .item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-    }
-
-    .doc-btn {
-        position: relative;
-        width: 100%;
-        min-height: 300px;
-        max-height: 300px;
-        background-color: $white;
-        padding: 0;
-        margin: 0;
-        border: none;
-        overflow: hidden;
-        transition: $anim_03;
-        cursor: pointer;
-
-        &:hover {
-            transform: translateY(10px);
-        }
-
-        &::before {
-            content:'';
-            position: absolute;
-            inset: -1px;
-            background: rgba($black, .4);
-            backdrop-filter: blur(5px);
-            z-index: 1;
+        @include media('<phone') {
+            margin: 0 auto;
         }
     }
 }
@@ -1215,13 +1175,41 @@
 /* --------------------------gallery-section---------------------- */
 
 .gallery-section {
-    padding: 65px 0;
+    padding: 60px 0;
+
+    @include media('<phone') {
+        padding: 25px 0;
+    }
+
+    .title {
+        text-align: center;
+
+        @include media('<desktop') {
+            font-size: 88px;
+        }
+
+        @include media('<tablet') {
+            font-size: 72px;
+        }
+
+        @include media('<tablet_s') {
+            font-size: 50px;
+        }
+    }
 
     .gallery-block {
         display: grid; 
         grid-template-columns: repeat(6, 1fr);
         grid-auto-rows: auto;
         gap: 16px;
+
+        @include media('<desktop') {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include media('<tablet') {
+            gap: 0;
+        }
     }
     
     .gallery-item-wrap {
@@ -1233,10 +1221,25 @@
         @for $i from 0 through ($groups - 1) {
             @for $j from 1 through 6 {
                 $nth: $i * 6 + $j;
+
                 &:nth-child(#{$nth}) {
-                grid-column: nth($cols, $j);
+                    grid-column: nth($cols, $j);
                 }
             }
+        }
+
+        @include media('<desktop') {
+            $cols: 1, 3, 2;
+
+            @for $i from 1 through ($groups - 1) {
+                &:nth-child(#{$i}) {
+                    grid-column: nth($cols, (($i - 1) % 3) + 1);
+                }
+            }
+        }
+
+        @include media('<phone') {
+            min-height: 83px;
         }
     }
 
@@ -1263,5 +1266,164 @@
             object-fit: cover;
             transition: $anim_03;
         }
+    }
+}
+
+/* ----------------------------doc-section------------------------ */
+
+.doc-section {
+    padding: 60px 0;
+
+    @include media('<phone') {
+        padding: 25px 0;
+    }
+
+    .container {
+        @include media('<phone') {
+            padding: 10px 0;
+        }
+    }
+
+    .title-wrap {
+        display: flex;
+    }
+
+    .title-lines {
+        margin-left: auto;
+        margin-right: 22%;
+        margin-bottom: 170px;
+
+        @include media('<tablet') {
+            margin: 0 auto 123px auto;
+        }
+    }
+
+    .slider-wrap {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        @include media('<phone') {
+            gap: 10px;
+        }
+    }
+
+    .item {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+
+        @include media('<phone') {
+            gap: 10px;
+        }
+    }
+
+    .doc-btn {
+        position: relative;
+        width: 100%;
+        min-height: 300px;
+        max-height: 300px;
+        background-color: $white;
+        padding: 0;
+        margin: 0;
+        border: none;
+        overflow: hidden;
+        transition: $anim_03;
+        cursor: pointer;
+
+        @include media('<phone') {
+            min-height: 130px;
+            max-height: 130px;
+        }
+
+        &:hover {
+            transform: translateY(10px);
+        }
+
+        &::before {
+            content:'';
+            position: absolute;
+            inset: -1px;
+            background: rgba($white, .1);
+            backdrop-filter: blur(3px);
+            z-index: 1;
+        }
+    }
+
+    .doc-arrow {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        transform: translateY(-25px);
+        cursor: pointer;
+
+        &:hover {
+            &::before,
+            &::after {
+                background-color: $yellow_32;
+            }
+        }
+
+        &::before,
+        &::after {
+            content:'';
+            position: absolute;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: $white;
+            transition: $anim_03;
+        }
+
+        &::before {
+            top: 12px;
+            transform: rotate(55deg);        
+        }
+
+        &::after {
+            bottom: 12px;
+            transform: rotate(-55deg);           
+        }
+        
+        &.doc-prev {
+            scale: -1 1;
+        }
+
+        &.swiper-button-disabled {
+            opacity: .2;
+
+            &:hover {
+                &::before,
+                &::after {
+                    background-color: $white;
+                }
+            }
+        }
+    }
+
+    .doc-pag {
+        display: flex;
+        justify-content: center;
+        margin-top: 140px;
+        gap: 25px;
+
+        @include media('<tablet') {
+            margin-top: 50px;
+        }
+    }
+
+    .swiper-pagination-bullet {
+        width: 34px;
+        height: 2px;
+        border-radius: 0;
+        background-color: $white;
+        opacity: 1;
+        margin: 0;
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: $yellow_32;
     }
 }
