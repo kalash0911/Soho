@@ -21,7 +21,7 @@ html {
     margin: 0 auto;
 
     @include media('<phone') {
-        padding: 0 15px;
+        padding: 0 25px;
     }
 }
 
@@ -54,6 +54,10 @@ b {
 .text {
     margin: 0;
     text-align: justify;
+
+    @include media('<phone') {
+        font-size: 12px;
+    }
 }
 
 .btn {

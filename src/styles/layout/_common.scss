@@ -4,6 +4,7 @@
     padding: 25px 0;
 
     .content {
+        position: relative;
         display: flex;
         justify-content: space-between;
         column-gap: 50px;
@@ -12,13 +13,78 @@
         @include media('<desktop') {
             flex-direction: column;
         }
+
+        @include media('<phone') {
+            row-gap: 15px;
+        }
+    }
+
+    .lang-wrap {
+        position: absolute;
+        top: 7px;
+        right: 0;
+        padding: 10px 8px;
+        background-color: $yellow_32;
+        cursor: pointer;
+
+        @include media('<phone') {
+            padding: 6px 4px;
+        }
+
+        &:hover {
+            
+            .lang-box {
+                max-height: 100px;
+                padding: 10px 2px;
+
+                @include media('<phone') {
+                    padding: 6px 2px;
+                }
+            }
+        }
+    }
+
+    .lang-box {
+        max-height: 0;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 5px 2px 0 2px;
+        border-top: 2px solid $black;
+        border-bottom: 2px solid $black;
+        list-style: none;
+        overflow: hidden;
+        transition: $anim_05;
+
+        @include media('<phone') {
+            border-top: 1px solid $black;
+            border-bottom: 1px solid $black;
+        }
+    }
+
+    .lang-item {
+
+        a {
+            color: $black;
+            font-size: 23px;
+            font-weight: $regular;
+
+            @include media('<phone') {
+                font-size: 12px;
+            }
+        }
     }
 
     .text-block {
         max-width: 45%;
+        margin-top: -15px;
 
         @include media('<widescreen') {
             max-width: 100%;
+        }
+
+        @include media('<desktop') {
+            margin-top: 0;
         }
     }
 
@@ -57,6 +123,7 @@
         display: flex;
         align-items: flex-start;
         gap: 30px;
+        margin-bottom: 25px;
 
         @include media('<desktop') {
             justify-content: center;
@@ -69,7 +136,6 @@
     }
 
     .text {
-        width: 30%;
         max-width: 226px;
         min-width: 226px;
         padding: 10px 0;
@@ -82,12 +148,38 @@
         @include media('<tablet') {
             min-width: 0;
 
-            @include adaptive-value("font-size", 23, 14, 1);
+            @include adaptive-value("font-size", 23, 12, 1);
         }
 
         @include media('<phone') {
             padding: 0;
-            font-size: 12px;
+        }
+    }
+
+    .adress-box {
+        max-width: 100%;
+        padding: 0;
+
+        @include media('<desktop') {
+           display: none;
+        }
+
+        @include media('<phone') {
+            max-width: 137px;
+        }
+
+        &.mob {
+            display: none;
+
+            @include media('<desktop') {
+                display: block;
+            }
+        }
+
+        br {
+            @include media('<desktop') {
+                display: none;
+            }
         }
     }
 
@@ -106,17 +198,35 @@
         }
     }
 
+    .sub-title-wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+    }
+
     .sub-title {
         line-height: 1.13;
         letter-spacing: 0.04em;
         margin: 0;
+        padding-right: 60px;
 
         @include media('<widescreen_s') {
             font-size: 38px;
         }
 
+        @include media('<desktop') {
+            padding: 0;
+        }
+
         @include media('<tablet') {
-            font-size: 32px;
+            max-width: 240px;
+            font-size: 30px;
+        }
+
+        @include media('<phone') {
+            max-width: 140px;
+            font-size: 17px;
+            line-height: 1.12;
         }
 
         span {
@@ -130,20 +240,41 @@
                 width: 100%;
                 height: 2px;
                 background-color: $yellow_32;
+
+                @include media('<phone') {
+                    height: 1px;
+                }
             }
 
             &::before {
-                top: 7px;             
+                top: 7px;     
+                
+                @include media('<phone') {
+                    top: 3px;
+                }
             }
 
             &::after {
                 bottom: 5px;
+
+                @include media('<phone') {
+                    bottom: 3px;
+                }
             }
         }
     }
 
     .sub-title-sec {
         margin-bottom: 50px;
+
+        @include media('<desktop') {
+            margin-bottom: 0;
+        }
+
+        @include media('<phone') {
+            margin-top: -10px;
+            font-size: 17px;
+        }
     }
 
     .icon {
@@ -152,6 +283,11 @@
 
         @include media('<desktop') {
             transform: translate(0, 7px);
+        }
+
+        @include media('<phone') {
+            width: 9px;
+            transform: translate(0, 4px);
         }
     }
 
