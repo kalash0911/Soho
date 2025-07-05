@@ -40,6 +40,21 @@ b {
     border-top: 3px solid;
     border-bottom: 3px solid;
 
+    @include media('<desktop') {
+        font-size: 88px;
+    }
+
+    @include media('<tablet') {
+        font-size: 72px;
+    }
+
+    @include media('<tablet_s') {
+        font-size: 50px;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        padding: 3px 0 5px 0;
+    }
+
     &.yellow {
         color: $yellow_32;
         border-color: $white;
