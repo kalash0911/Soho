@@ -322,9 +322,12 @@
         padding: 5px 16px 14px 16px;
         margin: 0 auto;
         background-color: $black;
-        box-shadow: 
-            3.3px 3.3px 8px rgba($white, .25),
-            -3.3px 0 8px rgba($white, .25);
+        box-shadow: 3.3px 3.3px 8px rgba($white, .25), -3.3px 0 8px rgba($white, .25);
+
+        @include media('<phone') {
+            padding: 6px;
+            gap: 5px;
+        }
     }
 
     .block {
@@ -340,6 +343,11 @@
         @include media('<desktop') {
             grid-template-columns: 1fr;
             order: 2;
+        }
+
+        @include media('<phone') {
+            padding-top: 40px;
+            gap: 0;
         }
     }
 
@@ -369,6 +377,12 @@
 
         @include media('<desktop') {
             padding: 0 35px;
+            justify-content: center;
+        }
+
+        @include media('<tablet_s') {
+            padding: 0 10px;
+            justify-content: flex-start;
         }
     }
 
@@ -377,6 +391,16 @@
         font-size: 224px;
         line-height: 0.85;
         margin: 0;
+
+        @include media('<tablet') {
+            max-width: 250px;
+            font-size: 145px;
+        }
+
+        @include media('<tablet_s') {
+            max-width: 175px;
+            font-size: 95px;
+        }
 
         b {
             position: relative;
@@ -390,14 +414,26 @@
                 width: 100%;
                 height: 3px;
                 background-color: $white;
+
+                @include media('<tablet_s') {
+                    height: 2px;
+                }
             }
 
             &::before {
                 top: 5px;
+
+                @include media('<tablet_s') {
+                    top: 0;
+                }
             }
 
             &::after {
                 bottom: -20px;
+
+                @include media('<tablet_s') {
+                    bottom: -7px;
+                }
             }
         }
     }
@@ -406,6 +442,10 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+
+        @include media('<phone') {
+            gap: 7px;
+        }
     }
 
     .stiker {
@@ -418,6 +458,24 @@
 
         @include media('<desktop') {
             min-width: 0;
+        }
+
+        @include media('<tablet_s') {
+            justify-content: flex-start;
+        }
+
+        @include media('<phone') {
+            padding: 7px 9px;
+        }
+
+        .text {
+            @include media('<tablet_s') {
+                font-size: 14px;
+            }
+
+            @include media('<phone') {
+                font-size: 12px;
+            }
         }
     }
 
@@ -432,8 +490,21 @@
             margin: 0;
         }
 
+        @include media('<tablet_s') {
+            justify-content: center;
+        }
+
+        @include media('<phone') {
+            padding: 15px 10px 25px 10px;
+            gap: 20px;
+        }
+
         .text-wrap {
             max-width: 150px;
+
+            @include media('<phone') {
+                max-width: 100px;
+            }
         }
 
         .title {
@@ -448,14 +519,26 @@
                 width: 100%;
                 height: 3px;
                 background-color: $yellow_32;
+
+                @include media('<tablet_s') {
+                    height: 1px;
+                }
             }
 
             &::before {
                 top: 5px;
+
+                @include media('<tablet_s') {
+                    top: 0;
+                }
             }
 
             &::after {
                 bottom: -5px;
+
+                @include media('<tablet_s') {
+                    bottom: -3px;
+                }
             }
         }
     }
@@ -465,10 +548,22 @@
         font-weight: $regular;
         color: $yellow_32;
         margin-bottom: 5px;
+
+        @include media('<tablet') {
+            font-size: 24px;
+        }
+
+        @include media('<phone') {
+            font-size: 17px;
+        }
     }
 
     .icon {
         width: 21px;
+
+        @include media('<phone') {
+            width: 9px;
+        }
     }
 }
 

@@ -70,6 +70,10 @@ b {
     line-height: 1;
     transition: $anim_03;
 
+    @include media('<phone') {
+        font-size: 17px;
+    }
+
     &::before,
     &::after {
         content:'';
