@@ -449,28 +449,28 @@ waitForGoogleMaps().then(() => {
     window.initMap();
 });
 
+// for form-popup
 
+document.addEventListener('DOMContentLoaded', () => {
+    const openButtons = document.querySelectorAll<HTMLButtonElement>('.form-popup-btn');
+    const popupOverlay = document.getElementById('popupOverlay');
+    const popupClose = document.getElementById('popupClose');
+    const body = document.body;
 
-// Получаем элементы
-const openButtons = document.querySelectorAll<HTMLButtonElement>('.form-popup-btn');
-const popupOverlay = document.getElementById('popupOverlay') as HTMLElement | null;
-const popupClose = document.getElementById('popupClose') as HTMLButtonElement | null;
-const body = document.body;
+    if (!popupOverlay || !popupClose) {
+        return;
+    }
 
-if (popupOverlay && popupClose) {
-    // Функция открытия
-    const openPopup = () => {
+    const openPopup = (): void => {
         popupOverlay.style.display = 'flex';
         body.classList.add('body_lock');
     };
 
-    // Функция закрытия
-    const closePopup = () => {
+    const closePopup = (): void => {
         popupOverlay.style.display = 'none';
         body.classList.remove('body_lock');
     };
 
-    // Назначаем обработчики
     openButtons.forEach((button) => {
         button.addEventListener('click', openPopup);
     });
@@ -482,4 +482,4 @@ if (popupOverlay && popupClose) {
             closePopup();
         }
     });
-}
+});
