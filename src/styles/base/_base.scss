@@ -75,6 +75,19 @@ b {
     }
 }
 
+.main-btn-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .icon {
+        
+        @include media('<phone') {
+            width: 9px;
+        }
+    }
+}
+
 .btn {
     position: relative;
     padding: 2px 5px;
@@ -193,49 +206,70 @@ b {
     img {
         pointer-events: none;
     }
+}
 
-    .btn-close {
+.form-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($black, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+
+    .popup {
+        background: $white;
+        padding: 20px;
+        border-radius: 8px;
+        position: relative;
+        min-width: 300px;
+    }
+}
+
+.btn-close {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 0px;
+    right: -50px;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    @include media('<tablet') {
+        right: 0;
+        top: -35px;
+    }
+
+    &::before,
+    &::after {
+        content:'';
         position: absolute;
-        width: 30px;
-        height: 30px;
-        top: 0px;
-        right: -50px;
-        background: none;
-        border: none;
-        padding: 0;
-        margin: 0;
+        height: 3px;
+        width: 100%;
+        background-color: $yellow_32;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: $anim_03;
+    }
 
-        @include media('<tablet') {
-            right: 0;
-            top: -35px;
-        }
+    &::before {
+        transform: translate(-50%, -50%) rotate(45deg);        
+    }
 
+    &::after {
+        transform: translate(-50%, -50%) rotate(-45deg);           
+    }
+
+    &:hover {
         &::before,
         &::after {
-            content:'';
-            position: absolute;
-            height: 3px;
-            width: 100%;
-            background-color: $yellow_32;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transition: $anim_03;
-        }
-
-        &::before {
-            transform: translate(-50%, -50%) rotate(45deg);        
-        }
-
-        &::after {
-            transform: translate(-50%, -50%) rotate(-45deg);           
-        }
-
-        &:hover {
-            &::before,
-            &::after {
-                background-color: $white;
-            }
+            background-color: $white;
         }
     }
 }

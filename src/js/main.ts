@@ -448,3 +448,38 @@ const waitForGoogleMaps = () =>
 waitForGoogleMaps().then(() => {
     window.initMap();
 });
+
+
+
+// Получаем элементы
+const openButtons = document.querySelectorAll<HTMLButtonElement>('.form-popup-btn');
+const popupOverlay = document.getElementById('popupOverlay') as HTMLElement | null;
+const popupClose = document.getElementById('popupClose') as HTMLButtonElement | null;
+const body = document.body;
+
+if (popupOverlay && popupClose) {
+    // Функция открытия
+    const openPopup = () => {
+        popupOverlay.style.display = 'flex';
+        body.classList.add('body_lock');
+    };
+
+    // Функция закрытия
+    const closePopup = () => {
+        popupOverlay.style.display = 'none';
+        body.classList.remove('body_lock');
+    };
+
+    // Назначаем обработчики
+    openButtons.forEach((button) => {
+        button.addEventListener('click', openPopup);
+    });
+
+    popupClose.addEventListener('click', closePopup);
+
+    popupOverlay.addEventListener('click', (e: MouseEvent) => {
+        if (e.target === popupOverlay) {
+            closePopup();
+        }
+    });
+}

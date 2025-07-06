@@ -51,7 +51,7 @@
           <div class="content">
             <div class="btn-wrap">
               <img class="icon" src="./images/icons/arrow.svg" alt="icon">
-              <button class="btn primary">детальніше</button>
+              <button class="btn primary form-popup-btn">детальніше</button>
             </div>
             <div class="block">
               <div class="img-block">
@@ -175,8 +175,7 @@
       <section class="map-section">
         <div class="container">
           <div class="content">
-            <div class="block">
-              <div class="title-box">
+            <div class="title-box">
                 <h2 class="title">Розташування визначає ритм <b>життя</b></h2>
                 <p class="text">Квартал Soho знаходиться у центрі Одеси, де історія поєднується з сучасною динамікою міста</p>
               </div>
@@ -185,10 +184,40 @@
                 <h2 class="title title-stiker">усе, що потрібно - поруч:</h2>
                 <p class="stiker">культурні осередки, торгові центри (ТЦ «ЦУМ», ТРЦ «Острів», «Привоз»), море та траса здоров'я, транспортний хаб, заклади освіти, ділові центри</p>
               </div>
-            </div>
-            <div class="text-block">
+          </div>
+        </div>
+      </section>
+      <section class="parking-section">
+        <div class="container">
+          <div class="content">
+            <div class="title-block">
               <h2 class="title">Підземний паркінг з ліфтом</h2>
               <p class="text">Ми створили не просто паркінг, а захисну споруду, яка відповідає <b>найвищим стандартам безпеки і комфорту</b></p>
+            </div>
+            <div class="block">
+              <div class="img-wrap">
+                <img src="./images/parking-img.jpg" alt="img">
+              </div>
+              <div class="text-box">
+                <div class="text-wrap">
+                  <div class="text-item">
+                    <div class="icon-wrap">
+                      <img src="./images/icons/parking-icon1.svg" alt="icon">
+                    </div>
+                    <p class="text">Підземний паркінг має три шляхи евакуації для швидкого і безпечного виходу у разі надзвичайних ситуацій</p>
+                  </div>
+                  <div class="text-item">
+                    <div class="icon-wrap">
+                      <img src="./images/icons/parking-icon2.svg" alt="icon">
+                    </div>
+                    <p class="text">Паркінг також обладнаний санвузлом зі зручностями для людей з інвалідністю та велопарковкою</p>
+                  </div>
+                </div>
+                <div class="btn-wrap main-btn-wrap">
+                  <img class="icon" src="./images/icons/arrow.svg" alt="icon">
+                  <button class="btn primary form-popup-btn">детальніше</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -386,13 +415,8 @@
           </div>
         </div>
       </section>
-      <div class="modal-doc">
-        <button class="modal-doc-overflow"></button>
-        <div class="modal-doc-content">
-          <div class="modal-doc-wrap"></div>
-          <button class="btn-close"></button>
-        </div>
-      </div>
+      {{> form-popup }}
+      {{> modal-doc }}
     </main>
     {{> footer }}
   </div>
