@@ -1177,7 +1177,7 @@
     padding: 60px 0;
 
     @include media('<phone') {
-        padding: 25px 0;
+        padding: 25px 0 60px 0;
     }
 
     .title {
@@ -1365,6 +1365,108 @@
                 font-family: $Galgo;
                 color: inherit;
             }
+        }
+    }
+}
+
+/* ------------------------conditions-section--------------------- */
+
+.conditions-sections {
+    position: relative;
+    padding: 142px 0;
+
+    .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 80%;
+        z-index: -1;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 90px;
+        width: 50%;
+        margin-left: auto;
+
+        @include media('<widescreen_l') {
+            width: 75%;
+        }
+
+        @include media('<desktop') {
+            width: 100%;
+        }
+
+        @include media('<phone') {
+            gap: 38px;
+        }
+    }
+
+    .item {       
+        --stb-item-padding-left: 123px;
+
+        display: flex;
+        gap: 40px;
+
+        @include media('<tablet') {
+            --stb-item-padding-left: 50px;
+        }
+
+        @include media('<phone') {
+            gap: 18px;
+        }
+
+        &:nth-child(2) {
+            padding-left: var(--stb-item-padding-left);
+        }
+
+        &:nth-child(3) {
+            padding-left: calc(var(--stb-item-padding-left) * 2);
+        }
+
+        &:nth-child(4) {
+            padding-left: calc(var(--stb-item-padding-left) * 3);
+        }
+    }
+
+    .icon-wrap {
+        width: 82px;
+        height: 82px;
+        display: grid;
+        place-items: center;
+        box-shadow: $box_shadow_base;
+        background: rgba($white, 0.2);
+        backdrop-filter: blur(5px);
+        padding: 18px;
+
+        @include media('<phone') {
+            width: 35px;
+            height: 35px;
+            padding: 8px;
+        }
+    }
+
+    .icon {
+        @include media('<phone') {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    .item-title {
+        font-size: 50px;
+        line-height: 0.84;
+
+        @include media('<tablet') {
+            font-size: 34px;
+        }
+
+        @include media('<phone') {
+            font-size: 23px;
         }
     }
 }
