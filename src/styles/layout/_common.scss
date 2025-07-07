@@ -1804,6 +1804,124 @@
     }
 }
 
+/* ------------------------construction-section-------------------- */
+
+.construction-section {
+    padding: 32px 0;
+
+    .content {
+        padding: 22px 0;
+        border-top: 3px solid $white;
+        border-bottom: 3px solid $white;
+
+        @include media('<phone') {
+            padding: 10px 0;
+            border-top: 1px solid $white;
+            border-bottom: 1px solid $white;
+        }
+    }
+
+    .block {
+        padding: 100px 32px;
+        background-color: $white;
+
+        @include media('<tablet_s') {
+            padding: 45px 16px 27px 16px;
+        }
+    }
+
+    .title {
+        font-size: 116px;
+        line-height: 0.84;
+        margin-bottom: 30px;
+        color: $black;
+
+        @include media('<widescreen') {
+            font-size: 88px;
+        }
+
+        @include media('<tablet') {
+            font-size: 72px;
+        }
+
+        @include media('<tablet_s') {
+            font-size: 50px;
+        }
+    }
+
+    .wrap {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        grid-template-rows: 1fr 1fr;
+        column-gap: 104px;
+        row-gap: 32px;
+
+        @include media('<desktop') {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+        }
+    }
+
+    .img-wrap {
+        position: relative;
+        grid-row: span 2;
+        border: 1px solid rgba($black, .2);
+
+        @include media('<desktop') {
+            min-height: 400px;
+        }
+
+        @include media('<phone') {
+            min-height: 167px;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .sub-title {
+        font-size: 41px;
+        line-height: 1.13;
+        letter-spacing: 0.02em;
+        margin-bottom: 0;
+
+        @include media('<desktop') {
+            order: -1;
+            font-size: 32px;
+        }
+
+        @include media('<phone') {
+            font-size: 18px;
+            max-width: 203px;
+            margin-left: auto;
+        }
+    }
+
+    .text-wrap {
+        position: relative;
+
+        .icon {
+            position: absolute;
+            top: 0;
+            left: -60px;
+
+            @include media('<desktop') {
+                display: none;
+            }
+        }
+    }
+
+    .text {
+        color: $black;
+    }
+}
+
 /* --------------------------gallery-section---------------------- */
 
 .gallery-section {
