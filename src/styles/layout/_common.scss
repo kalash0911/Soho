@@ -1471,6 +1471,89 @@
     }
 }
 
+/* --------------------------segment-section---------------------- */
+
+.segment-section {
+    padding: 25px 0 60px 0;
+
+    @include media('<phone') {
+        padding: 25px 0;
+    }
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 30px;
+
+        @include media('<desktop') {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @include media('<phone') {
+            align-items: start;
+        }
+    }
+
+    .text-block {
+        max-width: 430px;
+        min-width: 430px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+
+        @include media('<desktop') {
+            margin-bottom: 85px;
+            min-width: 0;
+        }
+
+        @include media('<phone') {
+            max-width: 184px;
+        }
+    }
+
+    .img-block {
+        width: 100%;
+        max-width: 910px;
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        margin-bottom: 178px;
+
+        @include media('<desktop') {
+            flex-direction: column;
+            margin-bottom: 0;
+        }
+
+        @include media('<phone') {
+            gap: 7px;
+        }
+    }
+
+    .img {
+        width: 100%;
+    }
+
+    .icon-wrap {
+        @include media('<phone') {
+            width: 9px;
+            height: 11px;
+            padding-left: 6px;
+        }
+    }
+
+    .icon {
+        min-width: 21px;
+
+        @include media('<phone') {
+            width: 9px;
+            min-width: 9px;
+        }
+    }
+}
+
 /* ---------------------------plan-section------------------------ */
 
 .plan-section {
