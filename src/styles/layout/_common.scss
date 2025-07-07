@@ -1565,14 +1565,28 @@
 
     .content {
         position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 48px;
+
+        @include media('<desktop') {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @include media('<phone') {
+            gap: 35px;
+        }
     }
 
     .block {
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 30px;
-        margin-bottom: 48px;
 
         @include media('<phone') {
             gap: 10px;
@@ -1681,15 +1695,111 @@
     }
 
     .title-wrap {
-        display: flex;
+        min-width: max-content;
+
+        @include media('<desktop') {
+            order: -1;
+        }
+    }
+}
+
+/* --------------------------dwelling-section--------------------- */
+
+.dwelling-section {
+    position: relative;
+    padding: 132px 0;
+
+    @include media('<phone') {
+        padding:  0 0 25px 0;
     }
 
-    .title-lines {
-        margin-left: auto;
-        margin-right: 22%;
+    .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
 
         @include media('<phone') {
-            margin: 0 auto;
+            object-position: center;
+            top: 40%;
+            transform: translateY(-50%);
+            height: 60%;
+        }
+    }
+
+    .content {
+        max-width: 777px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 18px;
+    }
+
+    .title {
+        font-size: 116px;
+        line-height: 0.84;
+        margin-bottom: 0;
+        padding: 44px 75px;
+
+        @include media('<widescreen') {
+            font-size: 88px;
+        }
+
+        @include media('<tablet') {
+            font-size: 72px;
+        }
+
+        @include media('<tablet_s') {
+            font-size: 50px;
+        }
+
+        @include media('<phone') {
+            padding: 20px;
+            order: 1;
+        }
+    }
+
+    .text-wrap {
+        max-width: 540px;
+        display: flex;
+        align-items: flex-start;
+        gap: 27px;
+
+        @include media('<phone') {
+            max-width: 257px;
+            gap: 11px;
+            order: 3;
+        }
+
+        .icon {
+            @include media('<phone') {
+                width: 9px;
+            }
+        }
+    }
+
+    .text {
+        padding: 40px 48px;
+
+        @include media('<phone') {
+            padding: 16px 27px;
+        }
+    }
+
+    .stiker {
+        box-shadow: $box_shadow_base, 0 0 10px 2px rgba($black, .25);
+        background-color: rgba($white, .25);
+        backdrop-filter: blur(16px);
+    }
+
+    .main-btn-wrap {
+
+        @include media('<phone') {
+            order: 2;
+            margin-bottom: 266px;
         }
     }
 }
