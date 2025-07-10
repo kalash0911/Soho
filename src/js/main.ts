@@ -433,6 +433,7 @@ function initMap(): void {
     });
 }
 
+// @ts-ignore
 window.initMap = initMap;
 
 const waitForGoogleMaps = () =>
@@ -446,6 +447,7 @@ const waitForGoogleMaps = () =>
     });
 
 waitForGoogleMaps().then(() => {
+    // @ts-ignore
     window.initMap();
 });
 
