@@ -115,12 +115,17 @@
     .main-sub-title {
         border-top: 3px solid $white;
         border-bottom: 3px solid $white;
-        color: $yellow_32;
+        color: $white;
         padding-bottom: 5px;
+        transition: color 0.5s ease 1s;
 
         @include media('<phone') {
             border-top: 1px solid $white;
             border-bottom: 1px solid $white;
+        }
+
+        &.show {
+            color: $yellow_32;
         }
     }
 
@@ -360,6 +365,7 @@
         grid-row: span 2;
         display: flex;
         align-items: flex-end;
+        overflow: hidden;
 
         @include media('<desktop') {
             grid-row: span 1;
@@ -1591,6 +1597,24 @@
         @include media('<phone') {
             gap: 10px;
         }
+
+        &.anim {
+
+            .item {
+                opacity: 0;
+                transform: translateY(50px);
+                transition: $anim_speed;
+                @include delay;
+            }
+        }
+
+        &.show {
+
+            .item {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
     }
 
     .item {
@@ -1960,6 +1984,24 @@
         @include media('<tablet') {
             gap: 0;
         }
+
+        &.anim {
+
+            .gallery-item-wrap {
+                opacity: 0;
+                transform: translateY(50px);
+                transition: $anim_speed;
+                @include delay;
+            }
+        }
+
+        &.show {
+
+            .gallery-item-wrap {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
     }
     
     .gallery-item-wrap {
@@ -2040,11 +2082,89 @@
     }
 
     .title-wrap {
+        position: relative;
         max-width: 717px;
         margin-bottom: 57px;
 
+        @include media('<tablet') {
+            max-width: min-content;
+        }
+
         @include media('<phone') {
             margin-bottom: 25px;
+        }
+
+        &.anim {
+
+            .currency-icon {
+                opacity: 0;
+                transition: $anim_speed;
+                @include delay;
+            }
+        }
+
+        &.show {
+
+            .currency-icon {
+                opacity: 1;
+            }
+        }
+    }
+
+    .currency-icon-box {
+        &:hover {
+            height: 0;
+        }
+    }
+
+    .currency-icon {
+        position: absolute;
+
+        @include media('<laptop_s') {
+            width: 26px;
+        }
+
+        @include media('<widescreen') {
+            width: 20px;
+        }
+
+        @include media('<widescreen_s') {
+            width: 13px;
+        }
+
+        &:nth-child(1) {
+            top: -16%;
+            left: 12%;
+        }
+
+        &:nth-child(2) {
+            top: 43%;
+            left: 22%;
+        }
+
+        &:nth-child(3) {
+            top: 23%;
+            left: 48%;
+        }
+
+        &:nth-child(4) {
+            top: -6%;
+            left: 70%;
+        }
+
+        &:nth-child(5) {
+            top: 94%;
+            left: 2%;
+        }
+
+        &:nth-child(6) {
+            top: 70%;
+            left: 58%;
+        }
+
+        &:nth-child(7) {
+            top: 83%;
+            left: 81%;
         }
     }
 
@@ -2093,6 +2213,41 @@
         @include media('<tablet_s') {
             width: 100%;
         }
+
+        &.anim {
+
+            .stiker {
+                opacity: 0;
+                transition: all .7s ease;
+                transition-delay: var(--stb-transition-delay);
+            }
+
+            .arrow {
+                width: 0;
+                opacity: 0;
+                transition: width .7s ease, opacity .3s ease;
+                transition-delay: calc(var(--stb-transition-delay)*1.5);
+            }
+
+            .num {
+                opacity: 0;
+                transition: all .7s ease;
+                transition-delay: calc(var(--stb-transition-delay)*2);
+            }
+        }
+
+        &.show {
+
+            .stiker,
+            .num {
+                opacity: 1;
+            }
+
+            .arrow {
+                opacity: 1;
+                width: 98%;
+            }
+        }
     }
 
     .item {
@@ -2105,6 +2260,8 @@
     }
 
     .stiker {
+        --stb-transition-delay: .2s;
+
         width: 100%;
         max-width: 240px;
         display: grid;
@@ -2168,6 +2325,8 @@
     }
 
     .arrow {
+        --stb-transition-delay: .4s;
+
         position: relative;
         top: 50%;
         transform: translateY(-50%);
@@ -2214,6 +2373,8 @@
     }
 
     .num {
+        --stb-transition-delay: .6s;
+
         font: $medium 79px/1 $Galgo;
         margin: 0;
         padding-left: 27px;

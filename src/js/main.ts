@@ -483,3 +483,61 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// for scroll anim
+
+document.addEventListener('DOMContentLoaded', () => {
+    initAnimationOnScroll();
+});
+
+export const initAnimationOnScroll = () => {
+    const onEntry: IntersectionObserverCallback = (entry) => {
+        entry.forEach((change) => {
+            if (change.isIntersecting) {
+                change.target.classList.add('show');
+            }
+        });
+    };
+
+    const options = { threshold: [0.5] };
+    const observer = new IntersectionObserver(onEntry, options);
+    const elements = document.querySelectorAll('.anim');
+    for (const elm of elements) {
+        observer.observe(elm);
+    }
+};
+
+
+// for parallax effect 
+window.addEventListener("scroll", () => {
+    const section = document.querySelector<HTMLElement>(".parallax");
+    const imgBlock = document.querySelector<HTMLElement>(".parallax-block");
+
+    if (!section || !imgBlock) return;
+
+    const sectionRect = section.getBoundingClientRect();
+    const sectionTop = sectionRect.top;
+    const windowHeight = window.innerHeight;
+
+    // Начнем анимацию, когда верх секции доходит до нижней границы экрана
+    const start = windowHeight;
+    const end = 0;
+
+    // Прогресс анимации от 0 до 1
+    const progress = (start - sectionTop) / (start - end);
+
+    if (progress < 0 || progress > 1) {
+        imgBlock.style.transform = `translateY(0px)`; // начальное положение (ниже)
+        return;
+    }
+
+    const startTranslate = 500;
+    const endTranslate = 0;
+    const translateY = startTranslate - (startTranslate - endTranslate) * progress;
+
+    imgBlock.style.transform = `translateY(${translateY}px)`;
+});
+
+
+
+

@@ -273,3 +273,23 @@ b {
         }
     }
 }
+
+.anim {
+
+    b {
+        color: $white;
+        transition: color 0.5s ease 1s;
+    }
+
+    &.show {
+
+        b {
+            color: $yellow_32;
+        }
+    }
+}
+
+.parallax-block {
+    will-change: transform;
+    transition: transform 0.1s linear;
+}

@@ -301,3 +301,11 @@ transition: $list;
 	font-size: $pxSize;
 	font-size: ($pxSize / 10px) + rem;
 }
+
+@mixin delay {
+	@for $i from 1 through 60 {
+	  &:nth-child(#{$i}) {
+		transition-delay: #{$i * .2}s;
+	  }
+	}
+}
