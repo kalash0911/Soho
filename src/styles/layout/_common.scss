@@ -25,6 +25,7 @@
         right: 0;
         padding: 10px 8px;
         background-color: $yellow_32;
+        z-index: 3;
         cursor: pointer;
 
         @include media('<phone') {
@@ -68,9 +69,14 @@
             color: $black;
             font-size: 23px;
             font-weight: $regular;
+            transition: $anim_03;
 
             @include media('<phone') {
                 font-size: 12px;
+            }
+
+            &:hover {
+                color: $white;
             }
         }
     }
