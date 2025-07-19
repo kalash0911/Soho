@@ -29,13 +29,13 @@ $base-text-color: $white !default;
 $base-background-color: $black !default;
 $font-size-base: 23px !default;
 $line-height-base: 1.02 !default;
-$base-font-family: $base-font-sans-serif !default;
+$base-font-family: $HeadingNowTrial !default;
 
 $vertical-rhythm: (
     $line-height-base * 1em
 );
 
-$base-min-width: 320px;
+$base-min-width: 360px;
 
 // Liks
 $base-link-color: $white;

@@ -127,6 +127,46 @@ destroySlidersOnResize(".docSlider", 99999, {
     },
 });
 
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+destroySlidersOnResize(".heritageSlider", 99999, {
+    spaceBetween: 23,
+    slidesPerView: 5,
+
+    breakpoints: {
+        0: {
+            slidesPerView: 2.5,
+            spaceBetween: 10,
+            centeredSlides: true,
+            initialSlide: 1,
+        },
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+        },
+        1200: {
+            slidesPerView: 4,
+            spaceBetween: 23,
+        },
+        1500: {
+            slidesPerView: 5,
+            spaceBetween: 23,
+        },
+    },
+
+    pagination: {
+        el: '.heritage-pag',
+        clickable: true,
+    },
+
+    navigation: {
+        nextEl: '.heritage-next',
+        prevEl: '.heritage-prev',
+    },
+});
+
+
 // for Modal-doc
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -433,6 +473,7 @@ function initMap(): void {
     });
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 window.initMap = initMap;
 
@@ -447,6 +488,7 @@ const waitForGoogleMaps = () =>
     });
 
 waitForGoogleMaps().then(() => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     window.initMap();
 });

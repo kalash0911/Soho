@@ -73,6 +73,17 @@ b {
     @include media('<phone') {
         font-size: 12px;
     }
+
+    &.line {
+        padding: 3px 0 1px 0;
+        border-top: 1px solid $yellow_32;
+        border-bottom: 1px solid $yellow_32;
+    }
+
+    span {
+        font-family: $Galgo;
+        letter-spacing: 0.02em;
+    }
 }
 
 .main-btn-wrap {
@@ -89,16 +100,17 @@ b {
 }
 
 .btn {
+    min-width: 170px;
     position: relative;
-    padding: 2px 5px;
+    padding: 3px 5px;
     border: none;
     text-transform: uppercase;
     font-weight: $medium;
-    font-size: 41px;
-    line-height: 1;
+    font: $medium 41px/1 $HeadingNowTrial;
     transition: $anim_03;
 
     @include media('<phone') {
+        min-width: 72px;
         font-size: 17px;
     }
 
@@ -136,6 +148,26 @@ b {
         &::after {
             width: 0;
         }
+    }
+}
+
+.btn-blur {
+    padding: 13px 40px;
+    border: none;
+    box-shadow: $box_shadow_base;
+    background: rgba($white, .2);
+    backdrop-filter: blur(8px);
+    font: $regular 23px/1 $HeadingNowTrial;
+    text-transform: uppercase;
+    transition: $anim_03;
+
+    @include media('<phone') {
+        min-width: 90px;
+        font-size: 13px;
+    }
+
+    &:hover {
+       backdrop-filter: blur(2px); 
     }
 }
 
@@ -271,6 +303,80 @@ b {
         &::after {
             background-color: $white;
         }
+    }
+}
+
+.def-arrow {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+
+    &:hover {
+        &::before,
+        &::after {
+            background-color: $yellow_32;
+        }
+    }
+
+    &::before,
+    &::after {
+        content:'';
+        position: absolute;
+        left: 0;
+        width: 30px;
+        height: 2px;
+        background-color: $white;
+        transition: $anim_03;
+    }
+
+    &::before {
+        top: 12px;
+        transform: rotate(55deg);        
+    }
+
+    &::after {
+        bottom: 12px;
+        transform: rotate(-55deg);           
+    }
+    
+    &.def-prev {
+        scale: -1 1;
+    }
+
+    &.swiper-button-disabled {
+        opacity: .2;
+
+        &:hover {
+            &::before,
+            &::after {
+                background-color: $white;
+            }
+        }
+    }
+}
+
+.def-pag {
+    display: flex;
+    justify-content: center;
+    margin-top: 140px;
+    gap: 25px;
+
+    @include media('<tablet') {
+        margin-top: 50px;
+    }
+
+    .swiper-pagination-bullet {
+        width: 34px;
+        height: 2px;
+        border-radius: 0;
+        background-color: $white;
+        opacity: 1;
+        margin: 0;
+    }   
+
+    .swiper-pagination-bullet-active {
+        background-color: $yellow_32;
     }
 }
 
