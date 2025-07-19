@@ -2125,6 +2125,7 @@
 
     .currency-icon {
         position: absolute;
+        width: 32px;
 
         @include media('<laptop_s') {
             width: 26px;
