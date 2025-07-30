@@ -325,12 +325,22 @@ b {
     .item-list-point {
         display: flex;
         gap: 13px;
+
+        @include media('<phone') {
+            gap: 7px;
+        }
     }
 
     .icon {
         width: 13px;
         height: 16px;
         margin-top: 4px;
+
+        @include media('<phone') {
+            width: 7px;
+            height: 8px;
+            margin-top: 1px;
+        }
     }
 
     .title-lines {
