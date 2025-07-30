@@ -166,6 +166,22 @@ destroySlidersOnResize(".heritageSlider", 99999, {
     },
 });
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+destroySlidersOnResize(".modalSlideSlider", 99999, {
+    slidesPerView: 1,
+
+    pagination: {
+        el: '.modal-slide-pag',
+        clickable: true,
+    },
+
+    navigation: {
+        nextEl: '.modal-slide-next',
+        prevEl: '.modal-slide-prev',
+    },
+});
+
 
 // for Modal-doc
 
@@ -197,12 +213,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             document.body.classList.add('body_lock');
-            modal.classList.add('modal-doc_active');
+            modal.classList.add('open');
         });
     });
 
     const closeModal = () => {
-        modal.classList.remove('modal-doc_active');
+        modal.classList.remove('open');
         document.body.classList.remove('body_lock');
         modalWrap.innerHTML = '';
     };
@@ -218,11 +234,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// for Modal-doc
-
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 Fancybox.bind("[data-fancybox]", {});
+
+// for Modal-slide
+
+document.addEventListener('DOMContentLoaded', () => {
+    const openButtons = document.querySelectorAll<HTMLElement>('.modal-slide-btn');
+    const modal = document.querySelector<HTMLElement>('.modal-slide');
+    const closeButton = document.querySelector<HTMLElement>('.modal-slide-close');
+    const overlay = document.querySelector<HTMLElement>('.modal-slide-overflow');
+    const body = document.body;
+
+    if (!openButtons.length || !modal || !closeButton || !overlay) {
+        console.log('Modal not initialized: required elements not found.');
+        return;
+    }
+
+    const openModal = () => {
+        modal.classList.add('open');
+        body.classList.add('body_lock');
+    };
+
+    const closeModal = () => {
+        modal.classList.remove('open');
+        body.classList.remove('body_lock');
+    };
+
+    openButtons.forEach(button => {
+        button.addEventListener('click', openModal);
+    });
+
+    closeButton.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+});
 
 
 // for Google map
