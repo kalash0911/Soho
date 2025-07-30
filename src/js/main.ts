@@ -170,6 +170,7 @@ destroySlidersOnResize(".heritageSlider", 99999, {
 // @ts-ignore
 destroySlidersOnResize(".modalSlideSlider", 99999, {
     slidesPerView: 1,
+    spaceBetween: 30,
 
     pagination: {
         el: '.modal-slide-pag',
