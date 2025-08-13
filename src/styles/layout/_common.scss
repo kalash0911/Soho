@@ -2979,3 +2979,175 @@
         }
     }
 }
+
+/* -------------------------contacts-section---------------------- */
+
+.contacts-section {
+    padding: 40px 0;
+
+    @include media('<phone') {
+        padding: 0 0 20px 0;
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 40px;
+        row-gap: 250px;
+
+        @include media('<desktop') {
+            grid-template-columns: 1fr;
+            row-gap: 30px;
+        }
+    }
+
+    .title-lines {
+        font-size: 251px;
+        margin-bottom: 50px;
+
+        @include media('<tablet') {
+            font-size: 145px;
+        }
+
+        @include media('<phone') {
+            font-size: 81px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .btn-box {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 60px;
+        margin-bottom: 40px;
+
+        @include media('<phone') {
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .text {
+        max-width: 235px;
+    }
+
+    .btn-wrap {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .icon {
+            @include media('<phone') {
+                width: 9px;
+            }
+        }
+    }
+
+    .socials-wrap {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 10px;
+
+        @include media('<phone') {
+            gap: 5px;
+        }
+    }
+
+    .social-link {
+        transition: $anim_03;
+
+        &:hover {
+            scale: 1.1;
+        }
+
+        img {
+            @include media('<phone') {
+                max-width: 26px;
+            }
+        }
+    }
+
+    .link {
+        color: $gray_AB;
+        font-size: 14px;
+        text-transform: uppercase;
+
+        @include media('<phone') {
+            font-size: 12px;
+        }
+
+        &:hover {
+            color: $white;
+        }
+    }
+
+    .img-wrap {
+        position: relative;
+        grid-row: span 2;
+        border: 1px solid $white;
+
+        @include media('<desktop') {
+            min-height: 450px;
+        }
+
+        @include media('<phone') {
+            min-height: 250px;
+        }
+        
+        .img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .adress-block {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 37px;
+    }
+
+    .adress-title {
+        margin-bottom: 21px;
+        font-size: 41px;
+
+        @include media('<phone') {
+            margin-bottom: 6px;
+            font-size: 20px;
+        }
+    }
+
+    .adress-link {
+        font-size: 23px;
+        text-transform: uppercase;
+
+        @include media('<phone') {
+            font-size: 12px;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        span {
+            font-family: $Galgo;
+        }
+    }
+
+    .btn-blur {
+        display: block;
+        padding: 6px 16px;
+        color: $gray_AB;
+        font-family: $Galgo;
+        letter-spacing: 0.03em;
+
+        &:hover {
+            color: $white;
+        }
+    }
+}
